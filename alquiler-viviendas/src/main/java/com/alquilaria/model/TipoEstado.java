@@ -1,4 +1,10 @@
 package com.alquilaria.model;
+/**
+ * Representa un tipo de estado para una vivienda.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 
 public class TipoEstado {
 

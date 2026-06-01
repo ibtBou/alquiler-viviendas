@@ -1,5 +1,11 @@
 package com.alquilaria.model;
 
+/**
+ * Representa un tipo de vivienda.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 public class TipoVivienda {
 
     private int id;

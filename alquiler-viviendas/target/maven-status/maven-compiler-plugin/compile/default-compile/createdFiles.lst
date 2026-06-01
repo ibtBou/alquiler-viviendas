@@ -1,7 +1,7 @@
 com\alquilaria\config\DatabaseConnection.class
-com\alquilaria\model\TipoEstado.class
 com\alquilaria\model\Vivienda.class
 com\alquilaria\model\Contrato.class
-com\alquilaria\model\TipoVivienda.class
 com\alquilaria\model\Propietario.class
+com\alquilaria\model\TipoEstado.class
+com\alquilaria\model\TipoVivienda.class
 com\alquilaria\model\Inquilino.class

@@ -2,6 +2,13 @@ package com.alquilaria.controller;
 
 import com.alquilaria.dao.ViviendaDAO;
 import com.alquilaria.model.Vivienda;
+/**
+ * Controlador encargado de gestionar
+ * las operaciones de viviendas.
+ *
+ * @author Betty
+ * @version 1.0
+ */ 
 
 public class ViviendaController {
 

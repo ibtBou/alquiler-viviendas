@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.alquilaria"},{"l":"com.alquilaria.config"},{"l":"com.alquilaria.controller"},{"l":"com.alquilaria.dao"},{"l":"com.alquilaria.model"},{"l":"com.alquilaria.service"},{"l":"com.alquilaria.util"},{"l":"com.alquilaria.view"}];updateSearchResults();

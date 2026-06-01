@@ -3,6 +3,13 @@ package com.alquilaria.controller;
 import com.alquilaria.dao.InquilinoDAO;
 import com.alquilaria.model.Inquilino;
 
+/**
+ * Controlador encargado de gestionar
+ * las operaciones de inquilinos.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 public class InquilinoController {
 
     private InquilinoDAO inquilinoDAO;

@@ -12,9 +12,15 @@ public class MenuPrincipal {
 
             System.out.println("\n===== ALQUILARIA =====");
             System.out.println("1. Gestionar propietarios");
+            System.out.println("\n==========================");
             System.out.println("2. Gestionar viviendas");
+            System.out.println("\n==========================");
             System.out.println("3. Gestionar inquilinos");
+            System.out.println("\n==========================");
             System.out.println("4. Gestionar contratos");
+            System.out.println("\n==========================");
+            System.out.println("5. Consultas avanzadas");
+            System.out.println("\n==========================");
             System.out.println("0. Salir");
 
             opcion = InputUtil.leerInt("Opción: ");
@@ -35,6 +41,10 @@ public class MenuPrincipal {
 
                 case 4:
                     new MenuContrato().mostrar();
+                    break;
+
+                case 5:
+                    new MenuConsultas().mostrar();
                     break;
 
                 case 0:

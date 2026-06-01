@@ -2,14 +2,17 @@ package com.alquilaria.view;
 
 import com.alquilaria.controller.InquilinoController;
 import com.alquilaria.model.Inquilino;
+import com.alquilaria.service.ExportacionService;
 import com.alquilaria.util.InputUtil;
 
 public class MenuInquilino {
+    private ExportacionService exportacionService;
 
     private InquilinoController controller;
 
     public MenuInquilino() {
         controller = new InquilinoController();
+        exportacionService = new ExportacionService();
     }
 
     public void mostrar() {
@@ -23,6 +26,8 @@ public class MenuInquilino {
             System.out.println("2. Consultar");
             System.out.println("3. Modificar");
             System.out.println("4. Eliminar");
+            System.out.println("5. Exportar inquilinos a JSON");
+            System.out.println("6. Exportar inquilinos a CSV");
             System.out.println("0. Volver");
 
             opcion = InputUtil.leerInt("Opción: ");
@@ -33,6 +38,8 @@ public class MenuInquilino {
                 case 2 -> consultar();
                 case 3 -> modificar();
                 case 4 -> eliminar();
+                case 5 -> exportarJSON();
+                case 6 -> exportarCSV();
             }
 
         } while (opcion != 0);
@@ -85,5 +92,13 @@ public class MenuInquilino {
         int id = InputUtil.leerInt("ID: ");
 
         System.out.println(controller.eliminar(id));
+    }
+    // Exportar inquilinos a JSON
+    private void exportarJSON() {
+        System.out.println(exportacionService.exportarInquilinosJSON());
+    }
+    // Exportar inquilinos a CSV
+    private void exportarCSV() {
+        System.out.println(exportacionService.exportarInquilinosCSV());
     }
 }

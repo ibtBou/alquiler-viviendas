@@ -4,6 +4,9 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.alquilaria.config.DatabaseConnection;
 import com.alquilaria.model.Vivienda;
@@ -11,6 +14,12 @@ import com.alquilaria.model.Vivienda;
 public class ViviendaDAO {
     // CRUD: Create, Read, Update, Delete
     // Create: crear vivienda
+    /**
+     * Crea un nueva vivienda en la base de datos.
+     *
+     * @param vivienda Datos de la vivienda a insertar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String crear(Vivienda vivienda) {
         
         String sql = "{CALL sp_crear_vivienda(?,?,?,?,?,?,?,?)}";
@@ -43,7 +52,12 @@ public class ViviendaDAO {
 
         return "Error al crear vivienda";
     }
-    // Delete: eliminar vivienda
+    /**
+     * Elimina una vivienda de la base de datos.
+     *
+     * @param id ID de la vivienda a eliminar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String eliminar(int id) {
 
         String sql = "{CALL sp_eliminar_vivienda(?)}";
@@ -69,7 +83,12 @@ public class ViviendaDAO {
         // Si el procedimiento almacenado no devuelve un mensaje, se puede retornar un mensaje genérico
         return "Error al eliminar vivienda";
     }
-    // Update: modificar vivienda
+    /**
+     * Modifica una vivienda en la base de datos.
+     *
+     * @param vivienda Datos de la vivienda a modificar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String modificar(Vivienda vivienda) {
 
         String sql = "{CALL sp_modificar_vivienda(?,?,?,?,?,?,?,?,?)}";
@@ -103,7 +122,12 @@ public class ViviendaDAO {
 
         return "Error al modificar vivienda";
     }
-    // Read: consultar vivienda por id
+    /**
+     * Consulta una vivienda en la base de datos.
+     *
+     * @param id ID de la vivienda a consultar.
+     * @return La vivienda encontrada o null si no se encuentra.
+     */
     public Vivienda consultar(int id) {
 
         String sql = "{CALL sp_consultar_vivienda(?)}";
@@ -138,4 +162,49 @@ public class ViviendaDAO {
         // Si el procedimiento almacenado no devuelve una vivienda, se puede retornar null o lanzar una excepción
         return null;
     }
+/**
+     * Lista todos las viviendas en la base de datos.
+     *
+     * @return Una lista con todas las viviendas.
+     */
+    public List<Vivienda> listarTodos() {
+
+    List<Vivienda> viviendas =
+            new ArrayList<>();
+
+    String sql =
+            "SELECT * FROM vivienda";
+
+    try (
+            Connection con = DatabaseConnection.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql)
+    ) {
+
+        while (rs.next()) {
+
+            viviendas.add(
+                    new Vivienda(
+                            rs.getInt("id"),
+                            rs.getInt("id_propietario"),
+                            rs.getString("codigo"),
+                            rs.getInt("tipo"),
+                            rs.getString("direccion"),
+                            rs.getInt("superficie"),
+                            rs.getBigDecimal("precio_mes"),
+                            rs.getString("descripcion"),
+                            rs.getBoolean("acepta_mascota")
+                    )
+            );
+        }
+
+    } catch (SQLException e) {
+
+        System.out.println(
+                "Error JDBC: " + e.getMessage()
+        );
+    }
+
+    return viviendas;
+}
 }

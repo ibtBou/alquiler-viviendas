@@ -1,4 +1,10 @@
 package com.alquilaria.model;
+/**
+ * Representa un inquilino de una vivienda.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 
 public class Inquilino {
     private int id;

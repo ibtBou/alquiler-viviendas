@@ -5,14 +5,17 @@ import java.time.LocalDate;
 
 import com.alquilaria.controller.ContratoController;
 import com.alquilaria.model.Contrato;
+import com.alquilaria.service.ExportacionService;
 import com.alquilaria.util.InputUtil;
 
 public class MenuContrato {
 
     private ContratoController controller;
+    private ExportacionService exportacionService;
 
     public MenuContrato() {
         controller = new ContratoController();
+        exportacionService = new ExportacionService();
     }
 
     public void mostrar() {
@@ -26,6 +29,8 @@ public class MenuContrato {
             System.out.println("2. Consultar");
             System.out.println("3. Modificar");
             System.out.println("4. Eliminar");
+            System.out.println("5. Exportar contratos a JSON");
+            System.out.println("6. Exportar contratos a CSV");
             System.out.println("0. Volver");
 
             opcion = InputUtil.leerInt("Opción: ");
@@ -36,6 +41,8 @@ public class MenuContrato {
                 case 2 -> consultar();
                 case 3 -> modificar();
                 case 4 -> eliminar();
+                case 5 -> exportarJSON();
+                case 6 -> exportarCSV();
             }
 
         } while (opcion != 0);
@@ -111,4 +118,16 @@ public class MenuContrato {
 
         System.out.println(controller.eliminar(id));
     }
+    private void exportarJSON() {
+
+        System.out.println(
+                exportacionService.exportarContratosJSON()
+        );
+}
+    private void exportarCSV() {
+
+        System.out.println(
+                exportacionService.exportarContratosCSV()
+        );
+}
 }

@@ -4,13 +4,21 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.alquilaria.config.DatabaseConnection;
 import com.alquilaria.model.Inquilino;
 
 public class InquilinoDAO {
     // CRUD: Create, Read, Update, Delete
-    // Create -> crear
+    /**
+     * Crea un nuevo inquilino en la base de datos.
+     *
+     * @param inquilino Datos del inquilino a insertar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String crear(Inquilino inquilino) {
 
         String sql = "{CALL sp_crear_inquilino(?,?,?,?,?)}";
@@ -40,7 +48,12 @@ public class InquilinoDAO {
 
         return "Error al crear inquilino";
     }
-    // Delete -> eliminar
+    /**
+     * Elimina un inquilino de la base de datos.
+     *
+     * @param id ID del inquilino a eliminar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String eliminar(int id) {
 
         String sql = "{CALL sp_eliminar_inquilino(?)}";
@@ -66,7 +79,12 @@ public class InquilinoDAO {
 
         return "Error al eliminar inquilino";
     }
-    // Update -> modificar
+    /**
+     * Modifica un inquilino en la base de datos.
+     *
+     * @param inquilino Datos del inquilino a modificar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String modificar(Inquilino inquilino) {
 
         String sql = "{CALL sp_modificar_inquilino(?,?,?,?,?,?)}";
@@ -97,7 +115,12 @@ public class InquilinoDAO {
 
         return "Error al modificar inquilino";
     }
-    // Read -> consultar
+    /**
+     * Consulta un inquilino en la base de datos.
+     *
+     * @param id ID del inquilino a consultar.
+     * @return El inquilino encontrado o null si no se encuentra.
+     */
     public Inquilino consultar(int id) {
 
         String sql = "{CALL sp_consultar_inquilino(?)}";
@@ -129,4 +152,46 @@ public class InquilinoDAO {
         // Si no se encuentra el inquilino, se devuelve null
         return null;
     }
+    /**
+     * Lista todos los inquilinos en la base de datos.
+     *
+     * @return Una lista con todos los inquilinos.
+     */
+    public List<Inquilino> listarTodos() {
+
+    List<Inquilino> inquilinos =
+            new ArrayList<>();
+
+    String sql =
+            "SELECT * FROM inquilino";
+
+    try (
+            Connection con = DatabaseConnection.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql)
+    ) {
+
+        while (rs.next()) {
+
+            inquilinos.add(
+                    new Inquilino(
+                            rs.getInt("id"),
+                            rs.getString("DNI"),
+                            rs.getString("nombre"),
+                            rs.getString("telefono"),
+                            rs.getString("email"),
+                            rs.getBoolean("tiene_mascota")
+                    )
+            );
+        }
+
+    } catch (SQLException e) {
+
+        System.out.println(
+                "Error JDBC: " + e.getMessage()
+        );
+    }
+
+    return inquilinos;
+}
 }

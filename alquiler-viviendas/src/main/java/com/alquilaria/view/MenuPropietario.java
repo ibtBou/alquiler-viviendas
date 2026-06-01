@@ -2,14 +2,17 @@ package com.alquilaria.view;
 
 import com.alquilaria.controller.PropietarioController;
 import com.alquilaria.model.Propietario;
+import com.alquilaria.service.ExportacionService;
 import com.alquilaria.util.InputUtil;
 
 public class MenuPropietario {
 
     private PropietarioController controller;
+    private ExportacionService exportacionService;
 
     public MenuPropietario() {
         controller = new PropietarioController();
+        exportacionService = new ExportacionService();
     }
 
     public void mostrar() {
@@ -23,6 +26,8 @@ public class MenuPropietario {
             System.out.println("2. Consultar propietario");
             System.out.println("3. Modificar propietario");
             System.out.println("4. Eliminar propietario");
+            System.out.println("5. Exportar propietarios a JSON");
+            System.out.println("6. Exportar propietarios a CSV");
             System.out.println("0. Volver");
 
             opcion = InputUtil.leerInt("Opción: ");
@@ -45,6 +50,14 @@ public class MenuPropietario {
                     eliminar();
                     break;
 
+                case 5:
+                    exportarJSON();
+                    break;
+
+                case 6:
+                    exportarCSV();
+                    break;
+
                 case 0:
                     break;
 
@@ -54,6 +67,14 @@ public class MenuPropietario {
 
         } while (opcion != 0);
     }
+
+
+    private void exportarJSON() {
+
+    System.out.println(
+            exportacionService.exportarPropietariosJSON()
+    );
+}
 // Métodos para cada opción del menú
 //crear
     private void crear() {
@@ -106,4 +127,10 @@ public class MenuPropietario {
 
         System.out.println(controller.eliminar(id));
     }
+    private void exportarCSV() {
+
+    System.out.println(
+            exportacionService.exportarPropietariosCSV()
+    );
+}
 }

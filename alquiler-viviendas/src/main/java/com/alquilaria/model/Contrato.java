@@ -3,6 +3,12 @@ package com.alquilaria.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * Representa un contrato de alquiler entre un propietario y un inquilino.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 public class Contrato {
     private int idContrato;
     private int idVivienda;

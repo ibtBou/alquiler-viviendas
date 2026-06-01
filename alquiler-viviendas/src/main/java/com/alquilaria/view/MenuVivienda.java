@@ -4,14 +4,17 @@ import java.math.BigDecimal;
 
 import com.alquilaria.controller.ViviendaController;
 import com.alquilaria.model.Vivienda;
+import com.alquilaria.service.ExportacionService;
 import com.alquilaria.util.InputUtil;
 
 public class MenuVivienda {
+    private ExportacionService exportacionService;
 
     private ViviendaController controller;
 
     public MenuVivienda() {
         controller = new ViviendaController();
+        exportacionService = new ExportacionService();
     }
 
     public void mostrar() {
@@ -25,6 +28,8 @@ public class MenuVivienda {
             System.out.println("2. Consultar");
             System.out.println("3. Modificar");
             System.out.println("4. Eliminar");
+            System.out.println("5. Exportar viviendas a JSON");
+            System.out.println("6. Exportar viviendas a CSV");
             System.out.println("0. Volver");
 
             opcion = InputUtil.leerInt("Opción: ");
@@ -35,6 +40,8 @@ public class MenuVivienda {
                 case 2 -> consultar();
                 case 3 -> modificar();
                 case 4 -> eliminar();
+                case 5 -> exportarJSON();
+                case 6 -> exportarCSV();
             }
 
         } while (opcion != 0);
@@ -111,4 +118,17 @@ public class MenuVivienda {
 
         System.out.println(controller.eliminar(id));
     }
+    // Método para exportar viviendas a JSON
+    private void exportarJSON() {
+
+    System.out.println(
+            exportacionService.exportarViviendasJSON()
+    );
+}
+private void exportarCSV() {
+
+    System.out.println(
+            exportacionService.exportarViviendasCSV()
+    );
+}
 }

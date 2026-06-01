@@ -1,0 +1,60 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'C:/Users/ibtih/.m2/repository/com/mysql/mysql-connector-j/9.3.0/mysql-connector-j-9.3.0.jar;C:/Users/ibtih/.m2/repository/com/google/protobuf/protobuf-java/4.29.0/protobuf-java-4.29.0.jar;C:/Users/ibtih/.m2/repository/com/google/code/gson/gson/2.13.1/gson-2.13.1.jar;C:/Users/ibtih/.m2/repository/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+20
+-sourcepath
+'C:/Users/ibtih/Documents/Proyecto_fin_curso/alquiler-viviendas/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/ibtih/Documents/Proyecto_fin_curso/alquiler-viviendas/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'alquiler-viviendas 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'alquiler-viviendas 1.0-SNAPSHOT API'
+com.alquilaria.config
+com.alquilaria.controller
+com.alquilaria.dao
+com.alquilaria
+com.alquilaria.model
+com.alquilaria.service
+com.alquilaria.util
+com.alquilaria.view
+C:\Users\ibtih\.m2\repository\com\mysql\mysql-connector-j\9.3.0\mysql-connector-j-9.3.0.jar = 1780228893297
+C:\Users\ibtih\.m2\repository\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar = 1780228893277
+C:\Users\ibtih\.m2\repository\com\google\code\gson\gson\2.13.1\gson-2.13.1.jar = 1780302692557
+C:\Users\ibtih\.m2\repository\com\google\errorprone\error_prone_annotations\2.38.0\error_prone_annotations-2.38.0.jar = 1780302692932
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\src\main\java = 1780227108451
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\allclasses-index.html = 1780311087388
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\allpackages-index.html = 1780311087395
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\copy.svg = 1780311087507
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\element-list = 1780311086680
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\help-doc.html = 1780311087495
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\index-all.html = 1780311087471
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\index.html = 1780311087347
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\member-search-index.js = 1780311087430
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\module-search-index.js = 1780311087419
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\overview-summary.html = 1780311087489
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\overview-tree.html = 1780311087341
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\package-search-index.js = 1780311087424
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\script.js = 1780311087503
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\search-page.js = 1780311087533
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\search.html = 1780311087478
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\search.js = 1780311087530
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\stylesheet.css = 1780311087501
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\tag-search-index.js = 1780311087432
+C:\Users\ibtih\Documents\Proyecto_fin_curso\alquiler-viviendas\target\reports\apidocs\type-search-index.js = 1780311087428

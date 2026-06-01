@@ -2,6 +2,12 @@ package com.alquilaria.model;
 
 import java.math.BigDecimal;
 
+/**
+ * Representa una vivienda disponible para alquiler.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 public class Vivienda {
     private int id;
     private int idPropietario;

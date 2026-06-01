@@ -26,4 +26,5 @@ public class ContratoController {
     public Contrato consultar(int id) {
         return contratoDAO.consultar(id);
     }
+    
 }

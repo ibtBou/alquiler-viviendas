@@ -17,9 +17,23 @@ public class InputUtil {
     }
 
     public static int leerInt(String mensaje) {
-        System.out.print(mensaje);
-        return Integer.parseInt(sc.nextLine());
+
+    while (true) {
+
+        try {
+
+            System.out.print(mensaje);
+
+            String texto = sc.nextLine();
+
+            return Integer.parseInt(texto);
+
+        } catch (NumberFormatException e) {
+
+            System.out.println("Debes introducir un número.");
+        }
     }
+}
 
     public static BigDecimal leerDecimal(String mensaje) {
         System.out.print(mensaje);

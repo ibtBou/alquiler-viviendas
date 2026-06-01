@@ -4,13 +4,21 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.alquilaria.config.DatabaseConnection;
 import com.alquilaria.model.Contrato;
 
 public class ContratoDAO {
     //funciones CRUD para Contrato
-    //crear contrato
+    /**
+     * Crea un nuevo contrato en la base de datos.
+     *
+     * @param contrato Datos del contrato a insertar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String crear(Contrato contrato) {
 
         String sql = "{CALL sp_crear_contrato(?,?,?,?,?,?)}";
@@ -41,7 +49,12 @@ public class ContratoDAO {
 
         return "Error al crear contrato";
     }
-    //eliminar contrato
+    /**
+     * Elimina un contrato de la base de datos.
+     *
+     * @param id ID del contrato a eliminar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String eliminar(int id) {
 
         String sql = "{CALL sp_eliminar_contrato(?)}";
@@ -68,7 +81,12 @@ public class ContratoDAO {
         return "Error al eliminar contrato";
     }
 
-    //modificar contrato
+    /**
+     * Modifica un contrato en la base de datos.
+     *
+     * @param contrato Datos del contrato a modificar.
+     * @return Mensaje indicando el resultado de la operación.
+     */
     public String modificar(Contrato contrato) {
 
         String sql = "{CALL sp_modificar_contrato(?,?,?,?,?,?,?)}";
@@ -100,7 +118,12 @@ public class ContratoDAO {
 
         return "Error al modificar contrato";
     }
-    //consultar contrato por id
+    /**
+     * Consulta un contrato en la base de datos.
+     *
+     * @param id ID del contrato a consultar.
+     * @return El contrato encontrado o null si no se encuentra.
+     */
     public Contrato consultar(int id) {
 
         String sql = "{CALL sp_consultar_contrato(?)}";
@@ -133,4 +156,47 @@ public class ContratoDAO {
         //si no se encuentra el contrato o hay un error, retornar null
         return null;
     }
+    /**
+     * Lista todos los contratos en la base de datos.
+     *
+     * @return Una lista con todos los contratos.
+     */
+    public List<Contrato> listarTodos() {
+
+    List<Contrato> contratos =
+            new ArrayList<>();
+
+    String sql =
+            "SELECT * FROM contrato";
+
+    try (
+            Connection con = DatabaseConnection.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql)
+    ) {
+
+        while (rs.next()) {
+
+            contratos.add(
+                    new Contrato(
+                            rs.getInt("id_contrato"),
+                            rs.getInt("id_vivienda"),
+                            rs.getInt("id_inquilino"),
+                            rs.getDate("fecha_inicio").toLocalDate(),
+                            rs.getDate("fecha_fin").toLocalDate(),
+                            rs.getBigDecimal("precio"),
+                            rs.getInt("estado")
+                    )
+            );
+        }
+
+    } catch (SQLException e) {
+
+        System.out.println(
+                "Error JDBC: " + e.getMessage()
+        );
+    }
+
+    return contratos;
+}
 }
