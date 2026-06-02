@@ -1,42 +1,166 @@
-# Alquiler Viviendas
+# 🏠 Alquilaria
 
-Aplicación Java Maven para gestionar propietarios, viviendas, inquilinos y contratos de alquiler desde menús por terminal.
+### Rental Housing Management System
 
-## Tecnologías
+## Description
 
-- Java 24
+Alquilaria is a Java console application developed to manage rental housing information. The system allows users to manage property owners, tenants, properties, and rental contracts through a menu-driven interface connected to a MySQL database.
+
+The project follows an MVC-inspired architecture and uses JDBC for database access, Maven for dependency management, stored procedures for database operations, and JUnit for unit testing.
+
+---
+
+## Features
+
+### Property Owners Management
+- Create property owners
+- Update property owners
+- Delete property owners
+- Search property owners by ID
+- Export data to CSV and JSON
+
+### Properties Management
+- Create properties
+- Update properties
+- Delete properties
+- Search properties by ID
+- Export data to CSV and JSON
+
+### Tenants Management
+- Create tenants
+- Update tenants
+- Delete tenants
+- Search tenants by ID
+- Export data to CSV and JSON
+
+### Contracts Management
+- Create rental contracts
+- Update rental contracts
+- Delete rental contracts
+- Search contracts by ID
+- Export data to CSV and JSON
+
+### Advanced Queries
+- Rental history by tenant
+- Rented properties by owner
+
+### Data Export
+- CSV export
+- JSON export
+- Files are automatically generated in the user's Downloads folder
+
+### Testing
+- Unit testing with JUnit
+- System testing
+- Database connection testing
+
+---
+
+## Technologies Used
+
+- Java 20
 - Maven
 - MySQL
 - JDBC
-- JUnit 5
+- JUnit 4
+- JSON
+- Git & GitHub
 
-## Configuración
+---
 
-Edita `src/main/resources/database.properties` con el usuario de MySQL que usará la aplicación:
+## Project Structure
 
-```properties
-db.url=jdbc:mysql://localhost:3306/alquiler_viviendas
-db.user=alquilaria
-db.password=alquilaria123
+```text
+src/main/java
+├── model
+├── dao
+├── controller
+├── service
+├── view
+├── util
+└── config
+
+src/test/java
+└── Unit tests
 ```
 
-## Ejecutar
+## Database
+
+The application uses a MySQL database named:
+
+```sql
+alquiler_viviendas
+```
+
+Main tables:
+
+- propietario
+- vivienda
+- inquilino
+- contrato
+- tipovivienda
+- tipoestado
+
+The system uses stored procedures for CRUD operations, advanced queries and JSON exports.
+
+---
+
+## Installation
+
+### Clone the repository
 
 ```bash
-mvn clean compile
+git clone https://github.com/ibtBou/alquiler-viviendas.git
+```
+
+### Open the project
+
+Open the project using Visual Studio Code or any Java IDE.
+
+### Configure the database
+
+1. Create the database in MySQL.
+2. Execute the SQL scripts included in the project.
+3. Configure the database credentials in `DatabaseConnection.java`.
+
+### Build the project
+
+```bash
+mvn clean install
+```
+
+### Run the application
+
+```bash
 mvn exec:java
 ```
 
-## Tests
+---
+
+## Generate JavaDoc
+
+```bash
+mvn javadoc:javadoc
+```
+
+Generated documentation:
+
+```text
+target/reports/apidocs
+```
+
+---
+
+## Run Unit Tests
 
 ```bash
 mvn test
 ```
 
-## Estructura
+---
 
-- `model`: clases que representan las tablas.
-- `dao`: acceso a base de datos mediante JDBC y procedimientos almacenados.
-- `controller`: conecta los menús con los servicios.
-- `view`: menús por consola.
-- `util`: utilidades de entrada y validación.
+## Author
+
+**Betty**
+
+Final Project – Web Application Development & Computer Engineering
