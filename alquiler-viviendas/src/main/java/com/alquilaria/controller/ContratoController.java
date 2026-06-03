@@ -3,6 +3,13 @@ package com.alquilaria.controller;
 import com.alquilaria.dao.ContratoDAO;
 import com.alquilaria.model.Contrato;
 
+/**
+ * Controlador encargado de gestionar
+ * las operaciones de contratos.
+ *
+ * @author Betty
+ * @version 1.0
+ */
 public class ContratoController {
 
     private ContratoDAO contratoDAO;

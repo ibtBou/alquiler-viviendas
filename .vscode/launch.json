@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Alquilaria",
+            "request": "launch",
+            "mainClass": "com.alquilaria.Main",
+            "env": {
+                "DB_URL": "jdbc:mysql://localhost:3306/alquiler_viviendas",
+                "DB_USER": "alquilaria",
+                "DB_PASSWORD": "alquilaria123"
+            }
+        }
+    ]
+}
