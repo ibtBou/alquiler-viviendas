@@ -6,9 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
         System.setProperty("file.encoding", "UTF-8");
-        // Iniciar la aplicación mostrando el menú principal
+        // Iniciar la aplicación mostrando el menú principal1
         MenuPrincipal menu = new MenuPrincipal();
         menu.mostrar();
+
 
     }
 }
