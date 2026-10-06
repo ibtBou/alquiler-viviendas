@@ -161,6 +161,6 @@ mvn test
 
 ## Author
 
-**Betty**
+**Ibtihal Bouchikhi El Benaissati**
 
 Final Project – Web Application Development & Computer Engineering
